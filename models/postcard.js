@@ -8,10 +8,12 @@ const PostcardSchema = new mongoose.Schema({
     minlength: [1, 'Minimum one character is required']
   },
   font: {
-    type: String,
-    default: 'Roboto',
+    type: String
   },
-  editedImage: {
+  frontCard: {
+    type: String
+  },
+  backCard: {
     type: String
   },
   name: {
@@ -34,8 +36,7 @@ const PostcardSchema = new mongoose.Schema({
     required: [true, 'User is required']
   },
   location: {
-    type: String,
-    required: [true, 'Address is required']
+    type: String
   }
 },
 {
