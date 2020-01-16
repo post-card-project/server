@@ -2,12 +2,11 @@ const User = require('../models/user')
 
 module.exports = class UserController {
   static create(req, res, next) {
-    const { name, email, password, image } = req.body;
+    const { name, email, password } = req.body;
     User.create({
       name,
       email,
-      password,
-      image
+      password
     })
       .then(user => {
         let newUser = user.toObject()
@@ -27,7 +26,7 @@ module.exports = class UserController {
             id : user._id
           };
           let token = generateToken(payload);
-          res.status(200).json({access_token: token, name: user.name, image: user.image })
+          res.status(200).json({access_token: token, name: user.name })
         } else {
           next({ status: 400, message: 'Incorrect email/password'});
         }

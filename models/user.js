@@ -37,9 +37,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Password is required'],
     minlength: [8, 'Please insert minimum 8 character for the password']
-  },
-  image: {
-    type: String
   }
 },
 {
@@ -50,9 +47,6 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', function (next) {
   this.email = this.email.toLowerCase()
   this.password = hashPass(this.password)
-  if (!this.image) {
-    this.image = `https://ui-avatars.com/api/?name=${this.name}&size=512`
-  }
   next()
 })
 
