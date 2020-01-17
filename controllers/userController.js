@@ -1,4 +1,6 @@
 const User = require('../models/user')
+const { validatePass } = require('../helpers/bcrypt');
+const { generateToken } = require('../helpers/jwt');
 
 module.exports = class UserController {
   static create(req, res, next) {

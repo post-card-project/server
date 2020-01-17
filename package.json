@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/post-card-project/server/issues"
   },
-  "homepage": "https://github.com/post-card-project/server#readme"
+  "homepage": "https://github.com/post-card-project/server#readme",
+  "posthtml": {
+    "recognizeSelfClosing": true
+  }
 }
