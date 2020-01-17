@@ -15,6 +15,8 @@ module.exports = class PostcardController {
         location = result[0].landmarkAnnotations[0].description
         const frontCard = createFront({ location, image })
         const backCard = createBack({ name, address, message, sender })
+        console.log(frontCard)
+        console.log(backCard)
         return Postcard.create({
           user, name, address, message, location, sender, image, frontCard, backCard
         })
