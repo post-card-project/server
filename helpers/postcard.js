@@ -1,5 +1,7 @@
 'use strict'
 const request = require('request')
+const axios = require('axios')
+
 function createFront(value) {
   const { image, location } = value
   const data = {
@@ -65,10 +67,21 @@ function createFront(value) {
     }`,
     google_fonts: "Zhi Mang Xing|Patrick Hand"
   }
-  request.post({ url: 'https://hcti.io/v1/image', form: data })
-    .auth(process.env.User_ID, process.env.API_Key)
-    .on('data', function (data) {
-      console.log(JSON.parse(data))
+
+  axios({
+    url: 'https://hcti.io/v1/image',
+    data: data,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + Buffer.from('562cd981-cdba-4ceb-8d55-f673608de167' + ':' + '54916a28-5d60-48d3-bd4f-06571c28154e').toString('base64')
+    },
+    method: 'post'
+  })
+    .then(response => {
+      return response.data.url
+    })
+    .catch(err => {
+      console.log(err)
     })
 }
 function createBack(ObjValue) {
@@ -143,10 +156,21 @@ function createBack(ObjValue) {
     }`,
     google_fonts: "Tangerine|Courier New"
   }
-  request.post({ url: 'https://hcti.io/v1/image', form: data })
-    .auth(process.env.User_ID, process.env.API_Key)
-    .on('data', function (data) {
-      console.log(JSON.parse(data))
+
+  axios({
+    url: 'https://hcti.io/v1/image',
+    data: data,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + Buffer.from('562cd981-cdba-4ceb-8d55-f673608de167' + ':' + '54916a28-5d60-48d3-bd4f-06571c28154e').toString('base64')
+    },
+    method: 'post'
+  })
+    .then(response => {
+      return response.data.url
+    })
+    .catch(err => {
+      console.log(err)
     })
 }
 module.exports = { createFront, createBack }
