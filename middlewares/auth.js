@@ -30,7 +30,7 @@ module.exports = {
     Postcard.findById(req.params.id)
       .then(postcard => {
         if (postcard) {
-          if (String(postcard.author) === req.decoded.id) {
+          if (String(postcard.user) === req.decoded.id) {
             next()
           } else {
             next({ status: 403, message: 'Unauthorized process!' })
