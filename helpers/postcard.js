@@ -51,7 +51,7 @@ function createFront(value) {
       transform: translate(-50%, -50%);
     }
     #title {
-      font-size: 85px;
+      font-size: 56px;
       color: rgb(54, 53, 53);
       transform: rotate(-10deg);
       -webkit-text-stroke: 0.1rem #b3a795;
