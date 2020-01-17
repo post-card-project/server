@@ -36,7 +36,7 @@ module.exports = class PostcardController {
 
   static findMine(req, res, next) {
     Postcard.find({
-      sender: req.decoded.id
+      user: req.decoded.id
     })
       .populate('user', 'name, email')
       .then(postcards => {
