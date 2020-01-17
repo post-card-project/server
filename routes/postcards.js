@@ -10,6 +10,7 @@ router.post('/',
 )
 router.get('/', PostcardController.findAll)
 router.get('/all/own', PostcardController.findMine)
+// like
 
 router.use('/:id', authorization)
 router.get('/:id', PostcardController.findOne)
