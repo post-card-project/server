@@ -81,7 +81,7 @@ module.exports = class PostcardController {
         },
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Basic ' + Buffer.from('562cd981-cdba-4ceb-8d55-f673608de167' + ':' + '54916a28-5d60-48d3-bd4f-06571c28154e').toString('base64')
+          'Authorization': 'Basic ' + Buffer.from(`${process.env.User_ID}` + ':' + `${process.env.API_Key}`).toString('base64')
         },
         method: 'POST'
         })
@@ -162,7 +162,7 @@ module.exports = class PostcardController {
           },
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + Buffer.from('562cd981-cdba-4ceb-8d55-f673608de167' + ':' + '54916a28-5d60-48d3-bd4f-06571c28154e').toString('base64')
+            'Authorization': 'Basic ' + Buffer.from(`${process.env.User_ID}` + ':' + `${process.env.API_Key}`).toString('base64')
           },
           method: 'POST'
         })
