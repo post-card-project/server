@@ -7,9 +7,6 @@ const PostcardSchema = new mongoose.Schema({
     required: [true, 'Image is required'],
     minlength: [1, 'Minimum one character is required']
   },
-  font: {
-    type: String
-  },
   frontCard: {
     type: String
   },
@@ -28,9 +25,15 @@ const PostcardSchema = new mongoose.Schema({
   },
   message: {
     type: String,
+    required: [true, 'Message is required'],
     minlength: [1, 'Minimum one character is required']
   },
   sender: {
+    type: String,
+    required: [true, 'Sender is required'],
+    minlength: [1, 'Minimum one character is required']
+  },
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, 'User is required']

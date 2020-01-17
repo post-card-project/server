@@ -7,20 +7,19 @@ module.exports = class PostcardController {
   // name: req.body.name
   // address: req.body.address
   // sender: req.decoded.id
-  // font: req.body.font
   // message: req.body.message
   // location: detectLandmarks(req.file.cloudStorageGsUri)
   // frontCard: helper bram
   // backCard: helper bram
-  const frontCard = createFront({ location, image, font })
+  const frontCard = createFront({ location, image })
   const backCard = createBack({ name, address, message, sender })
-  const { name, address, font, message } = req.body
+  const { name, address, message, sender } = req.body
   const location = detectLandmarks(req.file.cloudStorageGsUri)
-  const sender = req.decoded.id
+  const user = req.decoded.id
   const image = req.file.cloudStoragePublicUrl
   
   Postcard.create({
-    name, address, font, message, location, sender, image, frontCard, backCard
+    user, name, address, message, location, sender, image, frontCard, backCard
   })
     .then(postcard => {
       res.status(201).json(postcard)
